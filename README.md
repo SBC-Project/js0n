@@ -1,4 +1,4 @@
-# js0n - Flexible Zero-Footprint JSON Parser in C
+# js0nPP - Flexible Zero-Footprint JSON Parser in C++
 
 A one-pass minimal overhead walk of the raw bytes, using each one as an index into a jump table to determine state transitions.
 
@@ -27,7 +27,7 @@ Parsing this:
 
 ````
 
-Using `val = js0n("barbar", 6, json, strlen(json), &vlen)` would return a val pointing to `[1,2,3]` and set vlen to `7`.
+Using `val = parser.js0n("barbar", 6, json, strlen(json), &vlen)` would return a val pointing to `[1,2,3]` and set vlen to `7`.
 
 For arrays, pass `NULL` as the key, and the array offset as the second argument.
 
@@ -35,8 +35,8 @@ When the value is not found `NULL` is returned, if there were any parsing errors
 
 To determine if the returned value is an actual JSON string or a bare value (like `"true"` vs `true`), simply check if it starts with a quote character via `if(val && *(val-1) == '"')`.
 
-For more usage examples see the [test.json](test/test.json) and [test.c](test/test.c).
+For more usage examples see the [test.json](test/test.json) and [test.cpp](test/test.c).
 
 ## History
 
-See [v1.0](https://github.com/quartzjer/js0n/tree/v1.0) for the original `js0n` function that returned an index of offsets for all key/values in one pass.
+See (https://github.com/quartzjer/js0n/) for the original `js0n` fork.

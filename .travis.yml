@@ -1,5 +1,15 @@
-language: c
-script: make test
+language: cpp
+
 compiler:
-  - clang
   - gcc
+  - clang
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake -DCOMPILE_TESTS=ON ..
+
+script:
+  make install
+  ./js0nPP_Example
+  ./js0nPP_Tests
